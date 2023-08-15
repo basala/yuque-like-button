@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-html, body, #app{
+html,
+body,
+#app {
   height: 100%;
+}
+
+@keyframes like-button-selected {
+  to {
+      background-position: -2160px 0;
+      overflow: hidden
+  }
+}
+
+@keyframes like-button-hover {
+  25% {
+      transform: rotate(6deg)
+  }
+
+  75% {
+      transform: rotate(-6deg)
+  }
+
+  to {
+      transform: rotate(0)
+  }
+}
+
+.like-button {
+  width: 80px;
+  height: 80px;
+  background: url(https://gw.alipayobjects.com/mdn/prod_resource/afts/img/A*eDsBTKcm1IcAAAAAAAAAAAAAARQnAQ)
+    no-repeat 0 0;
+  background-size: auto 80px;
+  cursor: pointer;
+}
+
+.like-button:hover:not(.selected) {
+  animation: like-button-hover 1s infinite ease-out;
+  transform-origin: 25px 67px
+}
+
+.like-button.selected {
+  animation: like-button-selected .9s 1 steps(27) forwards;
 }
